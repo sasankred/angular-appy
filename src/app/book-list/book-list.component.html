@@ -1,0 +1,9 @@
+<h2>Books</h2>
+<div *ngFor="let book of books; index as bookId">
+  <h3><a [title]="book.name + ' details'" [routerLink]="['/books', bookId]">{{book.name}}</a></h3>
+  <p *ngIf="book.description">
+    Description: {{ book.description }}
+  </p>
+  <button (click)="share()">Share</button>
+  <app-book-alerts [book]="book" (notify)="onNotify()"></app-book-alerts>
+</div>
